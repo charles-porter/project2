@@ -1,22 +1,32 @@
 package com.example.charles.project2;
 
+import io.realm.RealmObject;
+
 /**
  * Created by Charles on 11/13/2017.
  */
 
-public class Recipe {
+public class Recipe extends RealmObject {
+    private String id;
     private String name;
     private String description;
     private String[] ingredients;
     private String[] tools;
     private double time;
 
+    public String getId(){
+        return id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
     public String getName(){
         return name;
     }
 
     public void setName(String name){
-        this.name=name;
+        this.name = name;
     }
 
     public String getDescription(){
@@ -24,7 +34,7 @@ public class Recipe {
     }
 
     public void setDescription(String description){
-        this.description=description;
+        this.description = description;
     }
 
     public String[] getIngredients() {
