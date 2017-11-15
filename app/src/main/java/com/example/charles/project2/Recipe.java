@@ -5,9 +5,27 @@ package com.example.charles.project2;
  */
 
 public class Recipe {
+    private String name;
+    private String description;
     private String[] ingredients;
     private String[] tools;
     private double time;
+
+    public String getName(){
+        return name;
+    }
+
+    public void setName(String name){
+        this.name=name;
+    }
+
+    public String getDescription(){
+        return description;
+    }
+
+    public void setDescription(String description){
+        this.description=description;
+    }
 
     public String[] getIngredients() {
         return new String[10];
