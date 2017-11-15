@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Project2</string>
+<<<<<<< HEAD
     <string name="title_activity_real_main">RealMainActivity</string>
+=======
+    <string name="title_activity_main">MainActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+>>>>>>> 89ccef57cb2f3ff76234b4a78931ff42cb7f134b
 </resources>
