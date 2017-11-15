@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import io.realm.Realm;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,7 +17,7 @@ import android.widget.ListView;
 public class FavoriteFragment extends Fragment {
 
     private ListView favoritesList;
-
+    private Realm realm;
     public FavoriteFragment() {
 
         // Required empty public constructor
