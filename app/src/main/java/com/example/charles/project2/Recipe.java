@@ -1,5 +1,7 @@
 package com.example.charles.project2;
 
+import java.util.List;
+
 import io.realm.RealmObject;
 
 /**
@@ -10,9 +12,19 @@ public class Recipe extends RealmObject {
     private String id;
     private String name;
     private String description;
-    private String[] ingredients;
-    private String[] tools;
+    private List <String> ingredients;
+    private List <String> tools;
     private double time;
+
+    Recipe(String id, String name, String description, List<String> ingredients, List<String> tools, double time)
+    {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.tools = tools;
+        this.time = time;
+    }
 
     public String getId(){
         return id;
@@ -37,21 +49,30 @@ public class Recipe extends RealmObject {
         this.description = description;
     }
 
-    public String[] getIngredients() {
-        return new String[10];
+    public List<String> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredients(String a, String b, String c, String d, String e, String f, String g, String h, String i, String j){
-
-    this.ingredients = new String[]{a, b, c, d, e, f, g, h, i, j};
+    public void setIngredients(List<String> ingredients){
+        this.ingredients = ingredients;
     }
 
-    public String[] getTools() {
-        return new String[5];
+    public void addIngredient(String ingredient)
+    {
+        ingredients.add(ingredient);
     }
 
-    public void setTools(String a, String b, String c, String d, String e){
-        this.tools = new String[]{a, b, c, d, e};
+    public List<String> getTools() {
+        return tools;
+    }
+
+    public void setTools(List<String> tools){
+        this.tools = tools;
+    }
+
+    public void addTool(String tool)
+    {
+        tools.add(tool);
     }
 
     public double getTime(){
