@@ -1,6 +1,7 @@
 package com.example.charles.project2;
 
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -19,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.addTab(tabLayout.newTab().setText("Featured"));
+        tabLayout.addTab(tabLayout.newTab().setText("Recipes"));
+        tabLayout.addTab(tabLayout.newTab().setText("Favorites"));
+        tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
