@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.util.ArrayList;
+
 import io.realm.Realm;
 
 
@@ -29,7 +31,7 @@ public class FavoriteFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
-        ArrayList<Recipes> recipe = new ArrayList<Recipes>();
+        ArrayList<Recipe> recipe = new ArrayList<Recipe>();
         favoritesList = (ListView) view.findViewById(R.id.favoritesList);
         return view;
     }
