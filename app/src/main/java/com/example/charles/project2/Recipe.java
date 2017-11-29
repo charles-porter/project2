@@ -1,7 +1,13 @@
 package com.example.charles.project2;
 
-import java.util.List;
+import android.support.annotation.NonNull;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import io.realm.RealmList;
 import io.realm.RealmObject;
 
 /**
@@ -12,11 +18,21 @@ public class Recipe extends RealmObject {
     private String id;
     private String name;
     private String description;
-    private List <String> ingredients;
-    private List <String> tools;
+    private RealmList <RealmString> ingredients;
+    private RealmList <RealmString> tools;
     private double time;
 
-    Recipe(String id, String name, String description, List<String> ingredients, List<String> tools, double time)
+    public Recipe()
+    {
+        id = "Eh";
+        name = "Deadcells";
+        description = "Not an actual recipe";
+        ingredients = new RealmList<RealmString>();
+        tools = new RealmList<RealmString>();
+        time = 9001;
+    }
+
+    public Recipe(String id, String name, String description, RealmList<RealmString> ingredients, RealmList<RealmString> tools, double time)
     {
         this.id = id;
         this.name = name;
@@ -49,28 +65,28 @@ public class Recipe extends RealmObject {
         this.description = description;
     }
 
-    public List<String> getIngredients() {
+    public RealmList<RealmString> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients){
+    public void setIngredients(RealmList<RealmString> ingredients){
         this.ingredients = ingredients;
     }
 
-    public void addIngredient(String ingredient)
+    public void addIngredient(RealmString ingredient)
     {
         ingredients.add(ingredient);
     }
 
-    public List<String> getTools() {
+    public RealmList<RealmString> getTools() {
         return tools;
     }
 
-    public void setTools(List<String> tools){
+    public void setTools(RealmList<RealmString> tools){
         this.tools = tools;
     }
 
-    public void addTool(String tool)
+    public void addTool(RealmString tool)
     {
         tools.add(tool);
     }
@@ -83,5 +99,4 @@ public class Recipe extends RealmObject {
         this.time = time;
     }
 }
-
 
