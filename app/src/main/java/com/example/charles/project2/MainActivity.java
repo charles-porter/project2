@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.addTab(tabLayout.newTab().setText("Search"));
-        tabLayout.addTab(tabLayout.newTab().setText("Featured"));
         tabLayout.addTab(tabLayout.newTab().setText("Favorite"));
+        tabLayout.addTab(tabLayout.newTab().setText("Search"));
+        tabLayout.addTab(tabLayout.newTab().setText("Grocery"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
