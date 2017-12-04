@@ -35,7 +35,7 @@ public class GroceryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_grocery, container, false);
+       final View view = inflater.inflate(R.layout.fragment_grocery, container, false);
 
         mShoppingList = (ListView) view.findViewById(R.id.shopping_listView);
         mItemEdit = (EditText) view.findViewById(R.id.item_editText);
@@ -55,9 +55,9 @@ public class GroceryFragment extends Fragment {
         });
         mShoppingList.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
-            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View viewX,int position, long id) {
                 mShoppingList.setSelection(position);
-                mAdapter.delete(position);
+                mAdapter.delete(position, view);
             }
         });
 
@@ -69,9 +69,6 @@ public class GroceryFragment extends Fragment {
     public ArrayList<String> getGroceryList()
     {
         ArrayList<String> groceries = new ArrayList<String>();
-        groceries.add("GO FUCK YOURSELF");
-        groceries.add("DREAM ON!");
-        groceries.add("PLEASE WORK!");
         return groceries;
     }
 }

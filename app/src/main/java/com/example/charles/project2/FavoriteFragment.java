@@ -19,7 +19,6 @@ import io.realm.Realm;
 public class FavoriteFragment extends Fragment {
 
     private ListView favoritesList;
-    private Realm realm;
     public FavoriteFragment() {
 
         // Required empty public constructor

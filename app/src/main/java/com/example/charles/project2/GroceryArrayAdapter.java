@@ -1,6 +1,7 @@
 package com.example.charles.project2;
 
 import android.content.Context;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,8 +50,9 @@ public class GroceryArrayAdapter extends BaseAdapter {
     {
         mDataSource.add(item);
     }
-    public void delete(int position)
+    public void delete(int position, View view)
     {
+        Snackbar.make(view, "Item Deleted", Snackbar.LENGTH_LONG);
         mDataSource.remove(position);
     }
 

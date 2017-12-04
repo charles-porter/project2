@@ -21,8 +21,6 @@ import io.realm.SyncUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    public Realm realm;
-    public User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        login("cs188","MyBeautifulBulldogApp");
-        Realm.init(this);
-        realm = Realm.getDefaultInstance();
-        user = realm.where(User.class).equalTo("username", getIntent().getStringExtra("username")).findFirst();
-
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -78,53 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private void login(final String username, final String password) {
-//        if(SyncUser.currentUser() != null) {
-//
-//            Realm realm = Realm.getDefaultInstance();
-//            if(realm != null) {
-//                realm.close();
-//                Realm.deleteRealm(realm.getConfiguration());
-//            }
-//
-//            SyncUser.currentUser().logout();
-//        }
 
-        SyncCredentials myCredentials = SyncCredentials.usernamePassword(username, password, false);
-        SyncUser.loginAsync(myCredentials, "http://52.205.194.154:9080", new SyncUser.Callback() {
-            @Override
-            public void onSuccess(SyncUser user) {
-                SyncConfiguration configuration = new SyncConfiguration
-                        .Builder(user, "http://52.205.194.154:9080/~/CollegeEats_v1")
-                        .disableSSLVerification().waitForInitialRemoteData().schemaVersion((long) 1.0).build();
-                Realm.setDefaultConfiguration(configuration);
-
-                Realm.getInstanceAsync(configuration, new Realm.Callback() {
-                    @Override
-                    public void onSuccess(Realm realm) {
-
-                        //successfully created a user
-                        final User user = new User();
-                        user.setUsername("default");
-                        realm.executeTransaction(new Realm.Transaction() {
-                            @Override
-                            public void execute(Realm realm) {
-                                realm.copyToRealmOrUpdate(user);
-
-                            }
-                        });
-
-                        realm.close();
-                    }
-                });
-            }
-
-            @Override
-            public void onError(ObjectServerError error) {
-                Toast.makeText(MainActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     @Override
     protected void onDestroy() {

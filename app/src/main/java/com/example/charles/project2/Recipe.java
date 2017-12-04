@@ -14,25 +14,24 @@ import io.realm.RealmObject;
  * Created by Charles on 11/13/2017.
  */
 
-public class Recipe extends RealmObject {
+public class Recipe{
     private String id;
     private String name;
     private String description;
-    private RealmList <RealmString> ingredients;
-    private RealmList <RealmString> tools;
+    private List <String> ingredients;
+    private List <String> tools;
     private double time;
+    private byte[] image;
 
     public Recipe()
     {
         id = "Eh";
         name = "Deadcells";
         description = "Not an actual recipe";
-        ingredients = new RealmList<RealmString>();
-        tools = new RealmList<RealmString>();
         time = 9001;
     }
 
-    public Recipe(String id, String name, String description, RealmList<RealmString> ingredients, RealmList<RealmString> tools, double time)
+    public Recipe(String id, String name, String description, List<String> ingredients, List<String> tools, double time)
     {
         this.id = id;
         this.name = name;
@@ -65,28 +64,28 @@ public class Recipe extends RealmObject {
         this.description = description;
     }
 
-    public RealmList<RealmString> getIngredients() {
+    public List<String> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(RealmList<RealmString> ingredients){
+    public void setIngredients(List<String> ingredients){
         this.ingredients = ingredients;
     }
 
-    public void addIngredient(RealmString ingredient)
+    public void addIngredient(String ingredient)
     {
         ingredients.add(ingredient);
     }
 
-    public RealmList<RealmString> getTools() {
+    public List<String> getTools() {
         return tools;
     }
 
-    public void setTools(RealmList<RealmString> tools){
+    public void setTools(List<String> tools){
         this.tools = tools;
     }
 
-    public void addTool(RealmString tool)
+    public void addTool(String tool)
     {
         tools.add(tool);
     }
@@ -97,6 +96,14 @@ public class Recipe extends RealmObject {
 
     public void setTime(double time){
         this.time = time;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 }
 
