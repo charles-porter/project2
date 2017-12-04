@@ -58,6 +58,7 @@ public class GroceryFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
                 mShoppingList.setSelection(position);
                 mAdapter.delete(position);
+                mAdapter.notifyDataSetChanged();
             }
         });
 
@@ -69,9 +70,6 @@ public class GroceryFragment extends Fragment {
     public ArrayList<String> getGroceryList()
     {
         ArrayList<String> groceries = new ArrayList<String>();
-        groceries.add("GO FUCK YOURSELF");
-        groceries.add("DREAM ON!");
-        groceries.add("PLEASE WORK!");
         return groceries;
     }
 }
