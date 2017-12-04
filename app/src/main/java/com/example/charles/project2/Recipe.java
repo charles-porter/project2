@@ -1,26 +1,41 @@
 package com.example.charles.project2;
 
-import io.realm.RealmObject;
+import android.support.annotation.NonNull;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 
 /**
  * Created by Charles on 11/13/2017.
  */
 
-public class Recipe extends RealmObject {
-    private String id;
+public class Recipe{
     private String name;
     private String description;
-    private String[] ingredients;
-    private String[] tools;
+    private List <String> ingredients;
+    private List <String> tools;
     private double time;
+    private byte[] image;
 
-    public String getId(){
-        return id;
+    public Recipe()
+    {
+        name = "Deadcells";
+        description = "Not an actual recipe";
+        time = 9001;
     }
 
-    public void setId(String id){
-        this.id = id;
+    public Recipe (String name, String description, List<String> ingredients, List<String> tools, double time)
+    {
+        this.name = name;
+        this.description = description;
+        this.ingredients = ingredients;
+        this.tools = tools;
+        this.time = time;
     }
+
     public String getName(){
         return name;
     }
@@ -37,21 +52,30 @@ public class Recipe extends RealmObject {
         this.description = description;
     }
 
-    public String[] getIngredients() {
-        return new String[10];
+    public List<String> getIngredients() {
+        return ingredients;
     }
 
-    public void setIngredients(String a, String b, String c, String d, String e, String f, String g, String h, String i, String j){
-
-    this.ingredients = new String[]{a, b, c, d, e, f, g, h, i, j};
+    public void setIngredients(List<String> ingredients){
+        this.ingredients = ingredients;
     }
 
-    public String[] getTools() {
-        return new String[5];
+    public void addIngredient(String ingredient)
+    {
+        ingredients.add(ingredient);
     }
 
-    public void setTools(String a, String b, String c, String d, String e){
-        this.tools = new String[]{a, b, c, d, e};
+    public List<String> getTools() {
+        return tools;
+    }
+
+    public void setTools(List<String> tools){
+        this.tools = tools;
+    }
+
+    public void addTool(String tool)
+    {
+        tools.add(tool);
     }
 
     public double getTime(){
@@ -61,6 +85,13 @@ public class Recipe extends RealmObject {
     public void setTime(double time){
         this.time = time;
     }
-}
 
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+}
 

@@ -4,4 +4,6 @@
     <string name="title_activity_main">MainActivity</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_button_text">Add</string>
+    <string name="item_editText_hint">Write a new item</string>
 </resources>
