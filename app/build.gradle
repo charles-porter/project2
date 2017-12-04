@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'realm-android'
 
 android {
     compileSdkVersion 26
@@ -31,6 +30,3 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-realm {
-    syncEnabled = true;
-}

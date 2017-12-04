@@ -13,11 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
-import io.realm.ObjectServerError;
-import io.realm.Realm;
-import io.realm.SyncConfiguration;
-import io.realm.SyncCredentials;
-import io.realm.SyncUser;
 
 public class MainActivity extends AppCompatActivity {
 

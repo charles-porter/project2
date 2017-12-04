@@ -7,15 +7,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import io.realm.RealmList;
-import io.realm.RealmObject;
 
 /**
  * Created by Charles on 11/13/2017.
  */
 
 public class Recipe{
-    private String id;
     private String name;
     private String description;
     private List <String> ingredients;
@@ -25,15 +22,13 @@ public class Recipe{
 
     public Recipe()
     {
-        id = "Eh";
         name = "Deadcells";
         description = "Not an actual recipe";
         time = 9001;
     }
 
-    public Recipe(String id, String name, String description, List<String> ingredients, List<String> tools, double time)
+    public Recipe (String name, String description, List<String> ingredients, List<String> tools, double time)
     {
-        this.id = id;
         this.name = name;
         this.description = description;
         this.ingredients = ingredients;
@@ -41,13 +36,6 @@ public class Recipe{
         this.time = time;
     }
 
-    public String getId(){
-        return id;
-    }
-
-    public void setId(String id){
-        this.id = id;
-    }
     public String getName(){
         return name;
     }

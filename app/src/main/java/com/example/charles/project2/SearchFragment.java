@@ -59,6 +59,10 @@ public class SearchFragment extends Fragment {
     public ArrayList<Recipe> getSearchList()
     {
         ArrayList<Recipe> recipies =  new ArrayList<Recipe>();
+        recipies.add(new Recipe("Cheese", "Good Cheese", Arrays.asList("Cheese Mexican Tortalini".split("\\s+")), Arrays.asList("Bowl Heat Magic".split("\\s+")), 20));
+        recipies.add(new Recipe("test", "testing", Arrays.asList("Code Working Please".split("\\s+")), Arrays.asList("Computer Miracle".split("\\s+")), 200));
+        recipies.add(new Recipe("null", "null", Arrays.asList("null".split("\\s+")), Arrays.asList("null".split("\\s+")), 2000));
+        recipies.add(new Recipe("Cooking App", "this", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
         return recipies;
     }
 
