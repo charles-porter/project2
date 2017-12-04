@@ -63,6 +63,12 @@ public class SearchFragment extends Fragment {
         recipies.add(new Recipe("test", "testing", Arrays.asList("Code Working Please".split("\\s+")), Arrays.asList("Computer Miracle".split("\\s+")), 200));
         recipies.add(new Recipe("null", "null", Arrays.asList("null".split("\\s+")), Arrays.asList("null".split("\\s+")), 2000));
         recipies.add(new Recipe("Cooking App", "this", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("Look", "cool", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("At", "things", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("This", "are", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("App", "around", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("Man", "the", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("Cool", "corner", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
         return recipies;
     }
 
