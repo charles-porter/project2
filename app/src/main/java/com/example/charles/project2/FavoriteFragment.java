@@ -12,7 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-
+import java.util.List;
 
 
 /**
@@ -23,6 +23,8 @@ public class FavoriteFragment extends Fragment {
     private ListView mFavoritesList;
     private EditText mRecipeName;
     private Button mAddButton;
+    private MainActivity mainActivity;
+
     public FavoriteFragment() {
 
         // Required empty public constructor
@@ -36,34 +38,27 @@ public class FavoriteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_favorite, container, false);
 
         mFavoritesList = (ListView) view.findViewById(R.id.favoritesList);
-        mRecipeName = (EditText) view.findViewById(R.id.recipe_name);
-        mAddButton = (Button) view.findViewById(R.id.add_button);
+        mainActivity = (MainActivity) this.getActivity();
+
         final FavoriteArrayAdapter mAdapter = new FavoriteArrayAdapter(this.getActivity(), getRecipes());
         mFavoritesList.setAdapter(mAdapter);
-        mAddButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String name = mRecipeName.getText().toString();
-                mAdapter.add(name);
-                mAdapter.notifyDataSetChanged();
-                mRecipeName.setText("");
-            }
-        });
-        mFavoritesList.setOnClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                mFavoritesList.setSelection(position);
-                mAdapter.delete(position, View view);
-                mAdapter.notifyDataSetChanged();
-            }
-        });
+
 
         return view;
     }
 
-    public ArrayList<String> getRecipes(){
-        ArrayList<String> recipes = new ArrayList<String>();
-        return recipes;
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+
+        FavoriteArrayAdapter adapter = new FavoriteArrayAdapter(this.getActivity(), getRecipes());
+        mFavoritesList.setAdapter(adapter);
+    }
+
+    public ArrayList<Recipe> getRecipes(){
+
+        return mainActivity.recipies;
     }
 
 }

@@ -57,7 +57,7 @@ public class GroceryFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 mShoppingList.setSelection(position);
-                mAdapter.delete(position);
+                mAdapter.delete(position,view);
                 mAdapter.notifyDataSetChanged();
             }
         });

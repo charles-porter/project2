@@ -13,9 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 public class MainActivity extends AppCompatActivity {
-
+    protected ArrayList <Recipe> recipies = new ArrayList<Recipe>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +26,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        recipies.add(new Recipe("Cheese", "Good Cheese", Arrays.asList("Cheese Mexican Tortalini".split("\\s+")), Arrays.asList("Bowl Heat Magic".split("\\s+")), 20));
+        recipies.add(new Recipe("test", "testing", Arrays.asList("Code Working Please".split("\\s+")), Arrays.asList("Computer Miracle".split("\\s+")), 200));
+        recipies.add(new Recipe("null", "null", Arrays.asList("null".split("\\s+")), Arrays.asList("null".split("\\s+")), 2000));
+        recipies.add(new Recipe("Cooking App", "this", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9001));
+        recipies.add(new Recipe("Look", "cool", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 89));
+        recipies.add(new Recipe("At", "things", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 1));
+        recipies.add(new Recipe("This", "are", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 91));
+        recipies.add(new Recipe("App", "around", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 9));
+        recipies.add(new Recipe("Man", "the", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), 901));
+        recipies.add(new Recipe("Cool", "corner", Arrays.asList("Programmers,Graphics Students,Journalist ".split(",")), Arrays.asList("Time Computers Ideas Recipies".split("\\s+")), .007));
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
