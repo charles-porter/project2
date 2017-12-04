@@ -51,62 +51,13 @@ public class SearchArrayAdapter extends BaseAdapter{
             mDataShow.add(pre);
         }
     }
-    @Override
-    public int getCount() {
-        return mDataShow.size();
-    }
-    @Override
-    public Recipe getItem(int position) {
-        return mDataShow.get(position);
-    }
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View rowView = mInflater.inflate(R.layout.text_cell, parent, false);
-
-        TextView recipeText = (TextView) rowView.findViewById(R.id.recipe_text);
-        TextView timeText = (TextView) rowView.findViewById(R.id.time_text);
-        TextView ingredientsText = (TextView) rowView.findViewById(R.id.ingredients_text);
-        TextView toolsText = (TextView) rowView.findViewById(R.id.tools_text);
-        ImageView foodView = (ImageView) rowView.findViewById(R.id.food_view);
-
-        recipeText.setText(mDataShow.get(position).getName());
-        timeText.setText(Double.toString(mDataShow.get(position).getTime()));
-
-        StringBuilder sb = new StringBuilder();
-        for (String s: mDataShow.get(position).getIngredients())
-        {
-            sb.append(s);
-            sb.append(",");
-        }
-        sb.deleteCharAt(sb.length());
-        ingredientsText.setText(sb.toString());
-
-        StringBuilder sb2 = new StringBuilder();
-        for (String s: mDataShow.get(position).getIngredients())
-        {
-            sb2.append(s);
-            sb2.append(",");
-        }
-        sb2.deleteCharAt(sb2.length());
-        toolsText.setText(sb2.toString());
-
-        if(mDataShow.get(position).getImage() != null)
-        {
-            Bitmap bmp = BitmapFactory.decodeByteArray(mDataShow.get(position).getImage(), 0, mDataShow.get(position).getImage().length);
-            foodView.setImageBitmap(bmp);
-        }
-
-        return rowView;
-    }
-
-    public void search(List<String> tokens)
-    {
-        ArrayList<Recipe> interim = new ArrayList<Recipe>();
+    public SearchArrayAdapter(Context context, ArrayList<Recipe> items, List<String> tokens) {
+        mContext = context;
+        mDataSource = items;
+        mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mDataShow = new ArrayList<Recipe>();
+        r = new Random();
+        ArrayList<Recipe> interim = new ArrayList<Recipe>();
         for(Recipe rec : mDataSource)
         {
             boolean match = true;
@@ -148,4 +99,56 @@ public class SearchArrayAdapter extends BaseAdapter{
             mDataShow = interim;
         }
     }
+    @Override
+    public int getCount() {
+        return mDataShow.size();
+    }
+    @Override
+    public Recipe getItem(int position) {
+        return mDataShow.get(position);
+    }
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View rowView = mInflater.inflate(R.layout.recipe_cell, parent, false);
+
+        TextView recipeText = (TextView) rowView.findViewById(R.id.recipe_text);
+        TextView timeText = (TextView) rowView.findViewById(R.id.time_text);
+        TextView ingredientsText = (TextView) rowView.findViewById(R.id.ingredients_text);
+        TextView toolsText = (TextView) rowView.findViewById(R.id.tools_text);
+        ImageView foodView = (ImageView) rowView.findViewById(R.id.food_view);
+
+        recipeText.setText(getItem(position).getName());
+        timeText.setText(Double.toString(mDataShow.get(position).getTime()));
+
+        StringBuilder sb = new StringBuilder();
+        for (String s: getItem(position).getIngredients())
+        {
+            sb.append(s);
+            sb.append(",");
+        }
+        sb.deleteCharAt(sb.length()-1);
+        ingredientsText.setText(sb.toString());
+
+        StringBuilder sb2 = new StringBuilder();
+        for (String s: getItem(position).getIngredients())
+        {
+            sb2.append(s);
+            sb2.append(",");
+        }
+        sb2.deleteCharAt(sb2.length()-1);
+        toolsText.setText(sb2.toString());
+
+        if(getItem(position).getImage() != null)
+        {
+            Bitmap bmp = BitmapFactory.decodeByteArray(getItem(position).getImage(), 0, getItem(position).getImage().length);
+            foodView.setImageBitmap(bmp);
+        }
+
+        return rowView;
+    }
+
 }

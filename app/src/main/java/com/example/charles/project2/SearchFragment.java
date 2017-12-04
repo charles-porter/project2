@@ -48,12 +48,19 @@ public class SearchFragment extends Fragment {
             public void onClick(View v) {
                 String search = searchText.getText().toString();
                 List<String> tokens = Arrays.asList(search.split("\\s+"));
-
-
+                onSearch(tokens);
             }
         });
 
         return view;
+    }
+
+    public void onSearch(List<String> tokens)
+    {
+        super.onResume();
+
+        SearchArrayAdapter adapter = new SearchArrayAdapter(this.getActivity(), this.getSearchList(),tokens);
+        searchView.setAdapter(adapter);
     }
 
     public ArrayList<Recipe> getSearchList()
